@@ -42,7 +42,7 @@ export default function Login() {
 				</h2>
 			</div>
 
-			<div className="mt-10 sm:mx-auto sm:w-full  rounded-lg sm:max-w-lg">
+			<div className="mt-10 sm:mx-auto sm:w-full px-3 rounded-lg sm:max-w-lg">
 				<div className="bg-white px-6 py-12 shadow-md shadow-gray-700 rounded-lg sm:px-12 ">
 					<form
 						className="space-y-6 text-black"

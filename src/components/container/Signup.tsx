@@ -42,8 +42,8 @@ export default function Signup() {
 				</h2>
 			</div>
 
-			<div className="mt-10 sm:mx-auto sm:w-full sm:max-w-lg">
-				<div className="bg-white px-6 py-12 shadow sm:rounded-lg sm:px-12">
+			<div className="mt-10 sm:mx-auto sm:w-full px-3 sm:max-w-lg">
+				<div className="bg-white px-6 py-12 shadow rounded-lg sm:px-12">
 					<form className="space-y-8" onSubmit={onSignup} method="POST">
 						<div className="flex flex-col gap-12 text-black">
 							<Input

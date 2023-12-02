@@ -1,5 +1,4 @@
 import Logo from "@/components/layout/Logo";
-import { Button } from "@nextui-org/button";
 import Link from "next/link";
 import AuthButtons from "../container/AuthButtons";
 

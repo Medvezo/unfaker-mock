@@ -29,7 +29,7 @@ export default function Login() {
 
 	const onLogin = () => {
 		// push user to app on success
-		router.push("/app");
+		router.push("/dashboard");
 	};
 
 	return (
@@ -65,6 +65,7 @@ export default function Login() {
 
 							<PasswordInput value={user} setValue={setUser} />
 							<Button
+								onClick={onLogin}
 								type="submit"
 								fullWidth
 								isDisabled={buttonDisabled}

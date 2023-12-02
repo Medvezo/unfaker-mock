@@ -19,7 +19,7 @@ export default function Signup() {
 
 	const onSignup = async () => {
 		if (!buttonDisabled) {
-            router.push('/')
+			router.push("/login");
 		}
 	};
 
@@ -44,7 +44,7 @@ export default function Signup() {
 
 			<div className="mt-10 sm:mx-auto sm:w-full px-3 sm:max-w-lg">
 				<div className="bg-white px-6 py-12 shadow rounded-lg sm:px-12">
-					<form className="space-y-8" onSubmit={onSignup} method="POST">
+					<form className="space-y-8">
 						<div className="flex flex-col gap-12 text-black">
 							<Input
 								isClearable
@@ -73,6 +73,7 @@ export default function Signup() {
 							fullWidth
 							type="submit"
 							isDisabled={buttonDisabled}
+							onClick={onSignup}
 							className="bg-accent font-bold">
 							Sign Up
 						</Button>

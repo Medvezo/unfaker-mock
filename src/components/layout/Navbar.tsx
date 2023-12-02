@@ -1,6 +1,7 @@
 import Logo from "@/components/layout/Logo";
 import { Button } from "@nextui-org/button";
 import Link from "next/link";
+import AuthButtons from "../container/AuthButtons";
 
 export default function Navbar() {
 	return (
@@ -9,14 +10,7 @@ export default function Navbar() {
 				<Logo width={50} height={50} />
 				<h1 className="lg:text-2xl text-lg text-white">Unfaker</h1>
 			</Link>
-			<div className="flex gap-3 md:gap-5 items-center">
-				<Button variant="bordered" className="border-accent ">
-					Log in
-				</Button>
-				<Button variant="solid" className="bg-accent ">
-					Sign up
-				</Button>
-			</div>
+			<AuthButtons />
 		</nav>
 	);
 }

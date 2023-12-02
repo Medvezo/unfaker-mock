@@ -18,8 +18,23 @@ export default function Signup() {
 	const [buttonDisabled, setButtonDisabled] = useState(false);
 
 	const onSignup = async () => {
-		if (!buttonDisabled) {
+		try {
+			// push user to login page on success
+			await toast.promise(
+				new Promise((resolve, reject) => {
+					setTimeout(() => {
+						resolve({ data: "Mock response data" });
+					}, 2000);
+				}),
+				{
+					pending: "Signing up...",
+					success: "Signed up successfully 🎉",
+					error: "Signup failed",
+				}
+			);
 			router.push("/login");
+		} catch (error: any) {
+			console.log("Signup failed: ", error);
 		}
 	};
 

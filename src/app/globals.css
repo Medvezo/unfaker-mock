@@ -9,7 +9,7 @@
 	/*! Custom Colors */
 	--primary: #00184b;
 	--secondary: #33b4bd;
-	--accent: #9C5025;
+	--accent: #9c5025;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,4 +22,9 @@
 body {
 	color: rgb(var(--foreground-rgb));
 	background: rgb(var(--background-rgb));
+}
+
+/* Overwriting NextUI label error */
+label {
+	color: black !important;
 }

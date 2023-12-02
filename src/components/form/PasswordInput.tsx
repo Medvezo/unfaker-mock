@@ -20,8 +20,7 @@ export default function PasswordInput({ value, setValue }: PasswordInputType) {
 				<button
 					className="focus:outline-none"
 					type="button"
-					onClick={toggleVisibility}
-				>
+					onClick={toggleVisibility}>
 					{isVisible ? (
 						<AiOutlineEyeInvisible className="text-2xl text-default-400 pointer-events-none" />
 					) : (
@@ -33,6 +32,7 @@ export default function PasswordInput({ value, setValue }: PasswordInputType) {
 			variant="underlined"
 			label="Password"
 			value={value.password}
+			color="warning"
 			labelPlacement="outside"
 			onChange={(e: any) => setValue({ ...value, password: e.target.value })}
 		/>

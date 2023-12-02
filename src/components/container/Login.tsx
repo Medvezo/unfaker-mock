@@ -19,6 +19,7 @@ export default function Login() {
 	const [buttonDisabled, setButtonDisabled] = useState(false); // form disability
 
 	useEffect(() => {
+		// Button disabled logic
 		if (user.email.length > 0 && user.password.length > 0) {
 			setButtonDisabled(false);
 		} else {
@@ -43,15 +44,12 @@ export default function Login() {
 
 			<div className="mt-10 sm:mx-auto sm:w-full px-3 rounded-lg sm:max-w-lg">
 				<div className="bg-white px-6 py-12 shadow-md shadow-gray-700 rounded-lg sm:px-12 ">
-					<form
-						className="space-y-6 text-black"
-						onSubmit={onLogin}
-						method="POST">
+					<form className="space-y-6 text-black" onSubmit={onLogin} method="post">
 						<div className="flex flex-col gap-12">
 							<Input
 								onClear={() => setUser({ ...user, email: "" })}
 								isClearable
-								color="primary"
+								color="warning"
 								isRequired
 								variant="underlined"
 								label="Email"
@@ -67,7 +65,7 @@ export default function Login() {
 								type="submit"
 								fullWidth
 								isDisabled={buttonDisabled}
-								className="bg-accent  font-bold">
+								className="bg-accent font-bold">
 								Sign In
 							</Button>
 						</div>
@@ -77,7 +75,7 @@ export default function Login() {
 				<p className="mt-10 text-center text-sm text-white">
 					Not a member?{" "}
 					<Link
-						href="../signup"
+						href="/signup"
 						className="font-semibold leading-6 text-secondary transition-colors duration-100 ease-in">
 						Create an Account!
 					</Link>

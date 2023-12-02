@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import LogoLeaf from "@/components/layout/Logo";
+import Logo from "@/components/layout/Logo";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Input } from "@nextui-org/input";
@@ -18,8 +18,8 @@ export default function Login() {
 	});
 	const [buttonDisabled, setButtonDisabled] = useState(false); // form disability
 
+	// Validation on client side
 	useEffect(() => {
-		// Button disabled logic
 		if (user.email.length > 0 && user.password.length > 0) {
 			setButtonDisabled(false);
 		} else {
@@ -35,16 +35,19 @@ export default function Login() {
 	return (
 		<div className="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
 			<div className="sm:mx-auto sm:w-full sm:max-w-md ">
-				<LogoLeaf classes="mx-auto" width={50} height={50} />
+				<Logo classes="mx-auto" width={50} height={50} />
 
 				<h2 className="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-amber-700">
 					Log in
 				</h2>
 			</div>
 
-			<div className="mt-10 sm:mx-auto sm:w-full px-3 rounded-lg sm:max-w-lg">
+			<div className="mt-10 sm:mx-auto sm:w-full  rounded-lg sm:max-w-lg">
 				<div className="bg-white px-6 py-12 shadow-md shadow-gray-700 rounded-lg sm:px-12 ">
-					<form className="space-y-6 text-black" onSubmit={onLogin} method="post">
+					<form
+						className="space-y-6 text-black"
+						onSubmit={onLogin}
+						method="post">
 						<div className="flex flex-col gap-12">
 							<Input
 								onClear={() => setUser({ ...user, email: "" })}
@@ -76,7 +79,7 @@ export default function Login() {
 					Not a member?{" "}
 					<Link
 						href="/signup"
-						className="font-semibold leading-6 text-secondary transition-colors duration-100 ease-in">
+						className="font-semibold leading-6 text-secondary">
 						Create an Account!
 					</Link>
 				</p>

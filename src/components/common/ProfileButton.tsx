@@ -10,12 +10,12 @@ export default function ProfileButton() {
 			isIconOnly
 			color="warning"
 			variant="ghost"
-			href="/profile"
-			aria-label="Take a photo"
-			startContent={<FaRegUserCircle className="w-10 h-10" />}
+			aria-label="Go to dasboard"
+            size="lg"
+			startContent={<FaRegUserCircle className="w-16 h-16 mx-1" />}
 			onClick={(e) => {
 				e.preventDefault();
-				router.push("/profile");
+				router.push("/dashboard");
 			}}
 		></Button>
 	);

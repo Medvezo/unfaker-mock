@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@nextui-org/button";
 import { useRouter } from "next/navigation";
 import { isLoggedIn } from "@/hooks/isLoggedIn";
+import ProfileButton from "@/components/common/ProfileButton";
 
 export default function AuthButtons() {
 	const router = useRouter();
@@ -16,7 +17,7 @@ export default function AuthButtons() {
 	return (
 		<>
 			{isClient && isLogged ? (
-				<p>Profile</p>
+				<ProfileButton />
 			) : (
 				<div className="flex gap-3 md:gap-5 items-center">
 					<Button

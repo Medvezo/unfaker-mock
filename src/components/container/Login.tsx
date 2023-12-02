@@ -35,7 +35,7 @@ export default function Login() {
 	return (
 		<div className="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
 			<div className="sm:mx-auto sm:w-full sm:max-w-md ">
-				<Logo classes="mx-auto" width={50} height={50} />
+				<Logo home classes="mx-auto" width={50} height={50} />
 
 				<h2 className="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-amber-700">
 					Log in

@@ -19,7 +19,8 @@ export default function Signup() {
 
 	const onSignup = async () => {
 		try {
-			// push user to login page on success
+			// Mock promise data with toast
+
 			await toast.promise(
 				new Promise((resolve, reject) => {
 					setTimeout(() => {
@@ -32,6 +33,7 @@ export default function Signup() {
 					error: "Signup failed",
 				}
 			);
+			// push user to login page on success
 			router.push("/login");
 		} catch (error: any) {
 			console.log("Signup failed: ", error);

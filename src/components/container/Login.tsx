@@ -27,9 +27,26 @@ export default function Login() {
 		}
 	}, [user]);
 
-	const onLogin = () => {
-		// push user to app on success
-		router.push("/dashboard");
+	const onLogin = async () => {
+		try {
+			// Mock promise data with toast
+			await toast.promise(
+				new Promise((resolve, reject) => {
+					setTimeout(() => {
+						resolve({ data: "Mock response data" });
+					}, 2000);
+				}),
+				{
+					pending: "Logging in...",
+					success: "Logged in successfully 🎉",
+					error: "Login failed",
+				}
+			);
+			// push user to dashboard page on success
+			router.push("/dashboard");
+		} catch (error: any) {
+			console.log("Login failed: ", error);
+		}
 	};
 
 	return (

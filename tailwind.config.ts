@@ -12,6 +12,7 @@ const config: Config = {
 		extend: {
 			colors: {
 				primary: "var(--primary)",
+				secondary: "var(--secondary)",
 				accent: "var(--accent)",
 			},
 			backgroundImage: {

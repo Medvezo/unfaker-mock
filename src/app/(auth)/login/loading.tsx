@@ -16,11 +16,7 @@ export default function Loading() {
 						<Skeleton className="h-10 w-full rounded-lg" />
 
 						{/* Skeleton for Password Input */}
-						<div className="flex flex-col gap-5 my-3">
-							<Skeleton className="h-10 w-full rounded-lg" />
-
-							<Skeleton className="h-3 w-full rounded-lg" />
-						</div>
+						<Skeleton className="h-10 w-full rounded-lg" />
 
 						{/* Skeleton for Sign-up Button */}
 						<Skeleton className="w-full mt-5 h-10  rounded-lg" />

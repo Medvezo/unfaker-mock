@@ -7,6 +7,7 @@ import { Input } from "@nextui-org/input";
 import { Button } from "@nextui-org/button";
 import { toast } from "react-toastify";
 import PasswordInput from "@/components/form/PasswordInput";
+import Cookies from "js-cookie";
 
 export default function Login() {
 	const router = useRouter();
@@ -42,6 +43,7 @@ export default function Login() {
 					error: "Login failed",
 				}
 			);
+			Cookies.set("isLoggedIn", "true");
 			// push user to dashboard page on success
 			router.push("/dashboard");
 		} catch (error: any) {

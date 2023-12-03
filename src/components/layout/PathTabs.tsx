@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { tabs } from "@/lib/const";
 
 export default function PathTabs() {
@@ -10,6 +10,11 @@ export default function PathTabs() {
 	// Active tab
 	const [selectedTab, setSelectedTab] = useState(pathname);
 
+	// Handling unexpected errors
+	useEffect(() => {
+		setSelectedTab(pathname);
+	}, [pathname]);
+	
 	const handleTabClick = (path: string) => {
 		setSelectedTab(path);
 		router.push(path);

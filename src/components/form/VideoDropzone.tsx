@@ -4,10 +4,13 @@ import { useDropzone } from "react-dropzone";
 import { Button } from "@nextui-org/button";
 import { TiDeleteOutline } from "react-icons/ti";
 import { useVideo } from "@/components/container/VideoProvider";
+import ScanOptions from "./ScanOptions";
 
 export default function VideoDropzone() {
 	const [buttonDisabled, setButtonDisabled] = useState(true);
 	const [files, setFiles] = useState<File[]>([]);
+	// option state for processing
+	const [option, setOption] = useState<string | null>(null);
 	// Global store state
 	const { setVideoFile } = useVideo();
 
@@ -35,8 +38,10 @@ export default function VideoDropzone() {
 
 	// Button disabled handle
 	useEffect(() => {
-		files.length > 0 ? setButtonDisabled(false) : setButtonDisabled(true);
-	}, [files.length]);
+		files.length > 0 && option
+			? setButtonDisabled(false)
+			: setButtonDisabled(true);
+	}, [files.length, option]);
 
 	// Handle Submit
 	const handleSubmit = () => {
@@ -66,11 +71,11 @@ export default function VideoDropzone() {
 							key={file.name}
 							className="mt-2 flex justify-between items-center ">
 							<div className="relative ">
-								<p className="font-bold  mb-5 underline underline-offset-8">
+								<p className="font-bold ml-5 mb-5 underline underline-offset-8">
 									{file.name} -{" "}
 									<em>{(file.size / 1024 / 1024).toFixed(2)} MB</em>
 								</p>
-								<video className="mt-2 w-full max-w-xs " controls>
+								<video className="mt-2 w-full max-w-sm px-3 " controls>
 									<source src={URL.createObjectURL(file)} type="video/mp4" />
 									Your browser does not support the video tag.
 								</video>
@@ -78,7 +83,7 @@ export default function VideoDropzone() {
 									isIconOnly
 									variant="solid"
 									color="danger"
-									className="absolute top-5 right-0 translate-x-5"
+									className="absolute top-10 right-0 "
 									onClick={() => handleDelete(file.name)}
 									aria-label="Delete">
 									<TiDeleteOutline className="h-8 w-8" />
@@ -87,6 +92,7 @@ export default function VideoDropzone() {
 						</li>
 					))}
 				</ul>
+				<ScanOptions setOption={setOption} />
 				<Button
 					isDisabled={buttonDisabled}
 					onClick={handleSubmit}

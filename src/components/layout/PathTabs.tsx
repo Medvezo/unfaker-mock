@@ -7,8 +7,10 @@ import { useState } from "react";
 export default function PathTabs() {
 	const router = useRouter();
 	const pathname = usePathname();
+	// Active tab
 	const [selectedTab, setSelectedTab] = useState(pathname);
 
+	// Tabs to iterate
 	const tabs = [
 		{ name: "Profile", path: "/profile", icon: FaRegUser },
 		{ name: "Dashboard", path: "/dashboard", icon: VscGraph },
@@ -19,8 +21,8 @@ export default function PathTabs() {
 		router.push(path);
 	};
 	return (
-		<nav className="flex flex-col pt-20  px-5 w-full">
-			<div className="flex justify-center gap-3 lg:gap-10  ">
+		<nav className="flex flex-col pt-24  px-5 w-full">
+			<div className="flex justify-center gap-3 lg:gap-10 border-b border-white border-opacity-25 pb-5">
 				{tabs.map((tab) => (
 					<button
 						key={tab.path}

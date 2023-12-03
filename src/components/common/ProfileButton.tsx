@@ -15,7 +15,7 @@ export default function ProfileButton() {
 			startContent={<FaRegUserCircle className="w-16 h-16 mx-1" />}
 			onClick={(e) => {
 				e.preventDefault();
-				router.push("/dashboard");
+				router.push("/profile");
 			}}
 		></Button>
 	);

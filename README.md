@@ -35,3 +35,16 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - Framer Motion
 - React-Toastify
 - React-Dropzone
+
+
+## Features on Website
+
+- Landing Page 
+- Signup (Mock)
+- Login
+- Log Out
+- File drop
+- File Validation
+- File processing
+- Real Time Analyzing
+- Background Analyzing

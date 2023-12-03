@@ -15,10 +15,10 @@ export default function ScanOptions({
             label="Select your processing option"
             color="warning"
             isRequired
-            className="mt-20"
+            className="mt-20 "
             onChange={handleChange} 
         >
-            <Radio value="real-time" description="Will give result now">
+            <Radio value="real-time" description="Will give result now" >
                 Real Time
             </Radio>
             <Radio value="background" description="Will send results to email">

@@ -11,7 +11,7 @@ export default function LogoutButton() {
 		router.push("/");
 	};
 	return (
-		<Button color="danger" variant="solid" onClick={logout}>
+		<Button color="danger" variant="solid" onClick={logout} className="text-white font-bold">
 			Log Out
 		</Button>
 	);

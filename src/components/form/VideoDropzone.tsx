@@ -146,7 +146,7 @@ export default function VideoDropzone() {
 				</Button>
 				{/* Handle Processing */}
 				{processingMessage && (
-					<div className="flex flex-col justify-center items-center gap-10 border-white border rounded-lg p-3 my-24">
+					<div className="flex flex-col justify-center items-center gap-10 border-gray-700 dark:border-white border rounded-lg p-3 my-24">
 						<IoIosMail className="h-32 w-32 text-green-500" />
 						<p className="font-bold text-xl max-w-sm px-3 text-center">
 							{processingMessage}

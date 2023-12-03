@@ -22,7 +22,7 @@ export default function Hero() {
 							<Button
 								href="/signup"
 								variant="solid"
-								className="lg:w-fit px-0 bg-accent w-full ">
+								className="lg:w-fit text-white px-0 bg-accent w-full ">
 								<Link href="/signup" className="py-5 px-10">
 									Get Started
 								</Link>

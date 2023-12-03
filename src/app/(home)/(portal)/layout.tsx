@@ -8,7 +8,7 @@ export default function RootLayout({
 	return (
 		<>
 			<PathTabs />
-			<main className="min-h-screen flex justify-center items-center mt-20">
+			<main className="min-h-screen flex items-center flex-col mt-20">
 				{children}
 			</main>
 		</>

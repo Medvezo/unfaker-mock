@@ -1,7 +1,8 @@
+import VideoDropzone from "@/components/form/VideoDropzone";
 export default function Home() {
 	return (
 		<section>
-			<p>Dashboard</p>
+			<VideoDropzone />
 		</section>
 	);
 }

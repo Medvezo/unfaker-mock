@@ -79,6 +79,13 @@ export default function VideoDropzone() {
 			setProcessingMessage(null);
 			setShowFrameExtractor(true); // show  FrameExtractor component
 		}
+		// Delay scrolling to ensure the page has updated
+		setTimeout(() => {
+			window.scrollTo({
+				top: document.body.scrollHeight,
+				behavior: "smooth",
+			});
+		}, 100); 
 	};
 
 	return (

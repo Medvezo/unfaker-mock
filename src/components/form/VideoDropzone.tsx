@@ -9,12 +9,11 @@ export default function VideoDropzone() {
 
 	// Ondropo handle
 	const onDrop = useCallback((acceptedFiles: File[]) => {
-        const firstFile = acceptedFiles[0];
-        if (firstFile && firstFile.size <= 30000000) {
-            setFiles([firstFile]);
-        }
-    }, []);
-    
+		const firstFile = acceptedFiles[0];
+		if (firstFile && firstFile.size <= 30000000) {
+			setFiles([firstFile]);
+		}
+	}, []);
 
 	// Ondrop delete
 	const handleDelete = (fileName: string) => {
@@ -57,15 +56,15 @@ export default function VideoDropzone() {
 									<source src={URL.createObjectURL(file)} type="video/mp4" />
 									Your browser does not support the video tag.
 								</video>
-							<Button
-								isIconOnly
-                                variant="solid"
-								color="danger"
-                                className="absolute top-5 right-0 translate-x-5"
-								onClick={() => handleDelete(file.name)}
-								aria-label="Delete">
-								<TiDeleteOutline className="h-8 w-8" />
-							</Button>
+								<Button
+									isIconOnly
+									variant="solid"
+									color="danger"
+									className="absolute top-5 right-0 translate-x-5"
+									onClick={() => handleDelete(file.name)}
+									aria-label="Delete">
+									<TiDeleteOutline className="h-8 w-8" />
+								</Button>
 							</div>
 						</li>
 					))}

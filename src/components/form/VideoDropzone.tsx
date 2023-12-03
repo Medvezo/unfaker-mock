@@ -9,10 +9,12 @@ export default function VideoDropzone() {
 
 	// Ondropo handle
 	const onDrop = useCallback((acceptedFiles: File[]) => {
-		// Filter out files larger than 30MB
-		const filteredFiles = acceptedFiles.filter((file) => file.size <= 30000000);
-		setFiles((prevFiles) => [...prevFiles, ...filteredFiles]);
-	}, []);
+        const firstFile = acceptedFiles[0];
+        if (firstFile && firstFile.size <= 30000000) {
+            setFiles([firstFile]);
+        }
+    }, []);
+    
 
 	// Ondrop delete
 	const handleDelete = (fileName: string) => {
@@ -32,10 +34,10 @@ export default function VideoDropzone() {
 		<div className="container mx-auto max-w-sm sm:max-w-xl lg:max-w-6xl px-6 lg:px-12">
 			<div
 				{...getRootProps()}
-				className="border-dashed border-4 border-gray-200 rounded-lg p-6 mt-6 text-center cursor-pointer">
+				className="border-dashed border-4 border-amber-700 rounded-lg p-6 mt-6 text-center cursor-pointer">
 				<input {...getInputProps()} />
 				<p className="text-gray-600">
-					Drag and drop some files here, or click to select files
+					Drag and drop here, or click to select file
 				</p>
 				<em>
 					(Only *.mp4, *.mov, and *.avi files will be accepted, max file size
@@ -43,7 +45,7 @@ export default function VideoDropzone() {
 				</em>
 			</div>
 			<aside className="mt-4">
-				<h4 className="font-semibold text-lg">Files:</h4>
+				<h4 className="font-semibold text-lg">File:</h4>
 				<ul className="flex flex-wrap justify-center items-center gap-10">
 					{files.map((file) => (
 						<li

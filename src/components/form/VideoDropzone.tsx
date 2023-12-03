@@ -6,6 +6,7 @@ import { TiDeleteOutline } from "react-icons/ti";
 import { useVideo } from "@/components/container/VideoProvider";
 import ScanOptions from "./ScanOptions";
 import { IoIosMail } from "react-icons/io";
+import FrameExtractor from "@/components/common/FrameExtractor";
 
 export default function VideoDropzone() {
 	const [buttonDisabled, setButtonDisabled] = useState(true);
@@ -16,6 +17,11 @@ export default function VideoDropzone() {
 	const [processingMessage, setProcessingMessage] = useState<string | null>(
 		null
 	);
+	// Error state
+	const [errorMessage, setErrorMessage] = useState("");
+	// Whether show frames or not
+	const [showFrameExtractor, setShowFrameExtractor] = useState(false);
+
 	// Global store state
 	const { setVideoFile } = useVideo();
 
@@ -32,9 +38,19 @@ export default function VideoDropzone() {
 		setFiles(files.filter((file) => file.name !== fileName));
 	};
 
+	useEffect(() => {
+		setErrorMessage("");
+	}, [files.length]);
+
+	// Handle rejection
+	const onDropRejected = useCallback(() => {
+		setErrorMessage("File is too large");
+	}, []);
+
 	// Ondrop handle
 	const { getRootProps, getInputProps } = useDropzone({
 		onDrop,
+		onDropRejected,
 		accept: {
 			"video/*": [],
 		},
@@ -54,11 +70,14 @@ export default function VideoDropzone() {
 		if (option === "background") {
 			const completionTime = new Date(Date.now() + 5 * 60000); // 5 minutes from now
 			setProcessingMessage(
-				`We will send you the report to your email by ${completionTime.toLocaleTimeString() }.`
+				`We will send you the report to your email by ${completionTime.toLocaleTimeString()}.`
 			);
+			setShowFrameExtractor(false);
+
 			setButtonDisabled(true);
 		} else if (option === "real-time") {
 			setProcessingMessage(null);
+			setShowFrameExtractor(true); // show  FrameExtractor component
 		}
 	};
 
@@ -79,6 +98,10 @@ export default function VideoDropzone() {
 			<aside className="mt-4 w-full flex flex-col justify-center items-center gap-5">
 				<h4 className="font-semibold text-lg">File:</h4>
 				<ul className="flex flex-wrap justify-center items-center gap-10">
+					{errorMessage && (
+						<p className="font-bold text-red-500 text-xl">{errorMessage}</p>
+					)}
+
 					{files.map((file) => (
 						<li
 							key={file.name}
@@ -123,6 +146,7 @@ export default function VideoDropzone() {
 						</p>
 					</div>
 				)}
+				{showFrameExtractor && <FrameExtractor />}
 			</aside>
 		</div>
 	);

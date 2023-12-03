@@ -5,12 +5,17 @@ import { Button } from "@nextui-org/button";
 import { TiDeleteOutline } from "react-icons/ti";
 import { useVideo } from "@/components/container/VideoProvider";
 import ScanOptions from "./ScanOptions";
+import { IoIosMail } from "react-icons/io";
 
 export default function VideoDropzone() {
 	const [buttonDisabled, setButtonDisabled] = useState(true);
 	const [files, setFiles] = useState<File[]>([]);
 	// option state for processing
 	const [option, setOption] = useState<string | null>(null);
+	// To differ background from real-time
+	const [processingMessage, setProcessingMessage] = useState<string | null>(
+		null
+	);
 	// Global store state
 	const { setVideoFile } = useVideo();
 
@@ -46,7 +51,15 @@ export default function VideoDropzone() {
 	// Handle Submit
 	const handleSubmit = () => {
 		setVideoFile(files[0]);
-		console.log(files[0]);
+		if (option === "background") {
+			const completionTime = new Date(Date.now() + 5 * 60000); // 5 minutes from now
+			setProcessingMessage(
+				`We will send you the report to your email by ${completionTime.toLocaleTimeString() }.`
+			);
+			setButtonDisabled(true);
+		} else if (option === "real-time") {
+			setProcessingMessage(null);
+		}
 	};
 
 	return (
@@ -101,6 +114,15 @@ export default function VideoDropzone() {
 					className=" w-full mt-10">
 					Analyze
 				</Button>
+				{/* Handle Processing */}
+				{processingMessage && (
+					<div className="flex flex-col justify-center items-center gap-10 border-white border rounded-lg p-3 my-24">
+						<IoIosMail className="h-32 w-32 text-green-500" />
+						<p className="font-bold text-xl max-w-sm px-3 text-center">
+							{processingMessage}
+						</p>
+					</div>
+				)}
 			</aside>
 		</div>
 	);

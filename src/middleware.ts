@@ -10,7 +10,7 @@ export function middleware(request: NextRequest) {
 	const loggedIn = request.cookies.get("isLoggedIn")?.value || "";
 
 	if (isAuth && loggedIn) {
-		return NextResponse.redirect(new URL("/profile", request.nextUrl));
+		return NextResponse.redirect(new URL("/dashboard", request.nextUrl));
 	}
 
 	// Profile redirect logic

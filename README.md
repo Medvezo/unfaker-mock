@@ -1,10 +1,17 @@
 # Unfaker
+This app is for interview task in field of Deepfake detection built by Next JS
 
-This app is for interview task in field of Deepfake detection built by Next JS 14
+![Logo for Hero section](public/UnfakerReadmeHero.png)
 
 ## Getting Started
 
-First, run the development server:
+To run locally, firstly install npm packages:
+
+```bash
+npm install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
@@ -17,3 +24,14 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+
+## Tech Stack
+
+- NextJS 14
+- TypeScript
+- Tailwind CSS
+- NextUI
+- Framer Motion
+- React-Toastify
+- React-Dropzone

@@ -1,20 +1,14 @@
 "use client";
-import { FaRegUser } from "react-icons/fa";
-import { VscGraph } from "react-icons/vsc";
+
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
+import { tabs } from "@/lib/const";
 
 export default function PathTabs() {
 	const router = useRouter();
 	const pathname = usePathname();
 	// Active tab
 	const [selectedTab, setSelectedTab] = useState(pathname);
-
-	// Tabs to iterate
-	const tabs = [
-		{ name: "Profile", path: "/profile", icon: FaRegUser },
-		{ name: "Dashboard", path: "/dashboard", icon: VscGraph },
-	];
 
 	const handleTabClick = (path: string) => {
 		setSelectedTab(path);

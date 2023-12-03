@@ -2,13 +2,9 @@
 import { useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Input } from "@nextui-org/input";
+import { TPasswordInput } from "@/lib/types";
 
-type PasswordInputType = {
-	value: any;
-	setValue: any;
-};
-
-export default function PasswordInput({ value, setValue }: PasswordInputType) {
+export default function PasswordInput({ value, setValue }: TPasswordInput) {
 	// Password visibility
 	const [isVisible, setIsVisible] = useState(false);
 	const toggleVisibility = () => setIsVisible(!isVisible);

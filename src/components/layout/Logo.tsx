@@ -1,26 +1,20 @@
-import LeafLogo from "public/Logo.webp";
+import LogoImg from "public/Logo.webp";
 import Image from "next/image";
 import Link from "next/link";
+import { TLogo } from "@/lib/types";
 
-type LogoLeafProps = {
-	width: number;
-	height: number;
-	classes?: string;
-	home?: boolean;
-};
-
-export default function LogoLeaf({
+export default function Logo({
 	width,
 	height,
 	classes,
 	home,
-}: LogoLeafProps) {
+}: TLogo) {
 	if (home) {
 		return (
 			<Link href="/" className="flex justify-center items-center gap-3 w-full">
 				<Image
 					className={` ${classes}`}
-					src={LeafLogo}
+					src={LogoImg}
 					alt="Biz Fix It leaf logo"
 					width={width}
 					height={height}
@@ -33,7 +27,7 @@ export default function LogoLeaf({
 			<>
 				<Image
 					className={classes}
-					src={LeafLogo}
+					src={LogoImg}
 					alt="Biz Fix It leaf logo"
 					width={width}
 					height={height}

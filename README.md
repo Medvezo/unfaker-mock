@@ -38,7 +38,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 
 ## Features on Website
-
+****
 - Landing Page 
 - Signup (Mock)
 - Login
@@ -49,3 +49,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - Real Time Analyzing
 - Background Analyzing
 - Light/Dark themes
+
+
+For this project i have used basic design, rather preferred to make accent on functionality of the website

@@ -48,3 +48,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - File processing
 - Real Time Analyzing
 - Background Analyzing
+- Light/Dark themes

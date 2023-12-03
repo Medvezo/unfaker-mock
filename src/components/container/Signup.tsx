@@ -8,6 +8,7 @@ import { Button } from "@nextui-org/button";
 import { toast } from "react-toastify";
 import { Input } from "@nextui-org/input";
 import PasswordInput from "@/components/form/PasswordInput";
+import TermsModal from "@/components/common/TermsModal";
 
 export default function Signup() {
 	const router = useRouter();
@@ -20,7 +21,6 @@ export default function Signup() {
 	const onSignup = async () => {
 		try {
 			// Mock promise data with toast
-
 			await toast.promise(
 				new Promise((resolve, reject) => {
 					setTimeout(() => {
@@ -79,11 +79,11 @@ export default function Signup() {
 
 							<PasswordInput value={user} setValue={setUser} />
 						</div>
-						<div className="flex items-center gap-1 px-3 ">
+						<div className="flex justify-center md:gap-2 items-center  ">
 							<span className="text-sm text-gray-700">
-								By signing up you agree to our{" "}
-								<b className=" text-accent underline">User Terms of Service</b>
+								By signing up you agree to
 							</span>
+								<TermsModal />
 						</div>
 
 						<Button

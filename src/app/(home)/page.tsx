@@ -1,3 +1,9 @@
+import Hero from "@/components/container/Hero";
+
 export default function Home() {
-	return <main className="min-h-screen"></main>;
+	return (
+		<main className="h-screen overflow-hidden">
+			<Hero />
+		</main>
+	);
 }

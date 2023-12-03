@@ -1,18 +1,21 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Button } from "@nextui-org/button";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { isLoggedIn } from "@/hooks/isLoggedIn";
 import ProfileButton from "@/components/common/ProfileButton";
 
 export default function AuthButtons() {
 	const router = useRouter();
+	const pathname = usePathname()
 	const [isClient, setIsClient] = useState(false);
-	const isLogged = isLoggedIn();
+	const [isLogged, setIsLogged] = useState(isLoggedIn());
 
-	useEffect(() => {
-		setIsClient(true);
-	}, []);
+    useEffect(() => {
+        setIsClient(true);
+        setIsLogged(isLoggedIn()); // Update state on route change
+    }, [pathname]); // path to re-trigger on route change
+
 
 	return (
 		<>

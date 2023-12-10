@@ -1,5 +1,5 @@
 # Unfaker
-This app is for interview task in field of Deepfake detection built by Next JS
+This app is simple project in field of Deepfake detection mock built by Next JS
 
 ![Logo for Hero section](public/UnfakerReadmeHero.png)
 
@@ -38,7 +38,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 
 ## Features on Website
-****
 - Landing Page 
 - Signup (Mock)
 - Login
@@ -52,3 +51,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 
 For this project i have used basic design, rather preferred to make accent on functionality of the website
+
+
+P.S: Gonna refactor messy VideoDropzone and FrameExtractor components soon...

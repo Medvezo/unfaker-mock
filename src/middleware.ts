@@ -14,7 +14,7 @@ export function middleware(request: NextRequest) {
 	}
 
 	// Profile redirect logic
-	const isProfile = path === "/profile";
+	const isProfile = path === "/profile" || path === "/dashboard";
 	if (!loggedIn && isProfile) {
 		return NextResponse.redirect(new URL("/login", request.nextUrl));
 	}
